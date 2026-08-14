@@ -9,43 +9,57 @@ const PROJECTS = [
   {
     title: "NextStep",
     description: "Smart career path platform — An adaptive job recommendation system powered by CV analysis and real-time job market trends.",
-    link: "https://fnl-fe-nextstep-34zn.vercel.app/",
+    status: "Live",
+    statusIcon: "fa-solid fa-circle-check",
+    statusColor: "#22c55e",
     tags: ["React", "AI/ML", "Vercel"]
   },
   {
     title: "TrainKu App",
     description: "Ticket booking app for Indonesian trains built with React Native. Supports multi-user roles with dedicated passenger & admin interfaces.",
-    link: "https://trainku--b3nua4mqav.expo.app/",
+    status: "Mobile",
+    statusIcon: "fa-solid fa-mobile-screen",
+    statusColor: "#f59e0b",
     tags: ["React Native", "Expo", "Mobile"]
   },
   {
     title: "FindYourAnime",
     description: "An anime discovery & search app built with React Native. Browse, search, and explore thousands of titles with a clean interface.",
-    link: "https://findyouranime--i87punoi21.expo.app/",
+    status: "Mobile",
+    statusIcon: "fa-solid fa-mobile-screen",
+    statusColor: "#f59e0b",
     tags: ["React Native", "API", "Expo"]
   },
   {
     title: "TikTakToe Game",
     description: "Classic Tic-Tac-Toe game built in Java with a clean GUI, designed to demonstrate core OOP and game logic concepts.",
-    link: "https://github.com/Feuriee/TikTakToe",
+    status: "GitHub",
+    statusIcon: "fa-brands fa-github",
+    statusColor: "#a78bfa",
     tags: ["Java", "OOP", "GitHub"]
   },
   {
     title: "Web Pemrograman — Vol. 1",
     description: "First web programming assignment: building a clean, semantic web page from scratch using HTML & CSS fundamentals.",
-    link: "https://feuriee.github.io/Tugas-1-Praktikum-Pemrograman-Web-/",
+    status: "Live",
+    statusIcon: "fa-solid fa-circle-check",
+    statusColor: "#22c55e",
     tags: ["HTML", "CSS", "Responsive"]
   },
   {
     title: "Web Pemrograman — Vol. 2",
     description: "Responsive multi-section webpage built as a web programming practical assignment, featuring JavaScript interactivity.",
-    link: "https://feuriee.github.io/Tugas-2-Praktikum-Pemrograman-Web/",
+    status: "Live",
+    statusIcon: "fa-solid fa-circle-check",
+    statusColor: "#22c55e",
     tags: ["HTML", "CSS", "JavaScript"]
   },
   {
     title: "To-Do List App",
     description: "Feature-rich task management web app with add, complete, and delete functionality — built as a web programming practical.",
-    link: "https://feuriee.github.io/Tugas-3-Praktikum-Pemrograman-Web/",
+    status: "Live",
+    statusIcon: "fa-solid fa-circle-check",
+    statusColor: "#22c55e",
     tags: ["HTML", "CSS", "JavaScript"]
   }
 ];
@@ -253,15 +267,18 @@ function renderProjects() {
     card.className = 'project-card';
     card.style.transitionDelay = (i % 3) * 0.08 + 's';
     card.innerHTML = `
-      <div class="project-num">0${i + 1}</div>
+      <div class="project-card-top">
+        <div class="project-num">0${i + 1}</div>
+        <div class="project-status-badge" style="--badge-color:${proj.statusColor}">
+          <i class="${proj.statusIcon}"></i>
+          <span>${proj.status}</span>
+        </div>
+      </div>
       <div class="project-title">${proj.title}</div>
       <div class="project-desc">${proj.description}</div>
       <div class="project-tags">
         ${proj.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
       </div>
-      <a href="${proj.link}" target="_blank" rel="noopener" class="project-link">
-        View Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </a>
     `;
     grid.appendChild(card);
   });
