@@ -144,6 +144,9 @@ body {
   z-index: 1000;
   transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
 }
+@media (max-width: 768px) {
+  #navbar { background: rgba(3, 6, 15, 0.85); backdrop-filter: blur(10px); }
+}
 #navbar.scrolled {
   background: rgba(3, 6, 15, 0.85);
   backdrop-filter: blur(20px);
@@ -1200,30 +1203,44 @@ body {
     left: 0; right: 0;
     background: rgba(3,6,15,0.97);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: center;
     padding: 2rem 1.5rem;
     gap: 0.25rem;
-    transform: translateY(-110%);
-    transition: transform 0.4s var(--ease);
+    /* Sembunyikan dengan transform + visibility agar tidak bocor */
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.35s var(--ease), opacity 0.35s var(--ease), visibility 0.35s;
     border-bottom: 1px solid var(--glass-border);
     z-index: 999;
   }
-  .nav-links.open     { transform: none; }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
   .nav-cta            { display: none; }
   .hamburger          { display: flex; }
 
-  /* Hero — stack vertikal, terpusat */
+  /* Hero — stack vertikal, semua terpusat */
   .hero               { padding: calc(var(--nav-h) + 2.5rem) 1.2rem 5rem; }
-  .hero-body          { flex-direction: column; align-items: center; gap: 2rem; text-align: center; }
-  .hero-text          { min-width: unset; width: 100%; }
+  .hero-body          { flex-direction: column; align-items: center; gap: 2rem; }
+  .hero-text          { min-width: unset; width: 100%; text-align: center; }
   .hero-badge         { justify-content: center; }
-  .hero-bio           { margin-left: auto; margin-right: auto; font-size: 0.95rem; }
+  .hero-name          { text-align: center; }
+  .hero-handle        { text-align: center; }
+  .typewriter-wrap    { text-align: center; font-size: 0.85rem; }
+  .hero-bio           { text-align: center; margin-left: auto; margin-right: auto; font-size: 0.95rem; }
   .hero-actions       { justify-content: center; }
+
+  /* Avatar — margin-top kecil karena ring sudah hidden */
   .avatar-ring        { display: none; }
   .avatar-img-holder  { width: 130px; height: 130px; }
-  .avatar-status      { margin-top: 7rem; font-size: 0.75rem; }
-  .typewriter-wrap    { font-size: 0.85rem; }
+  .avatar-status      { margin-top: 1rem; font-size: 0.75rem; }
 
   /* Hero stats */
   .hero-stats         { gap: 0; justify-content: center; }
@@ -1267,7 +1284,7 @@ body {
   .stat-num           { font-size: 1.4rem; }
   .stat-label         { font-size: 0.68rem; }
   .avatar-img-holder  { width: 110px; height: 110px; }
-  .avatar-status      { margin-top: 6rem; font-size: 0.72rem; padding: 0.3rem 0.75rem; }
+  .avatar-status      { margin-top: 0.75rem; font-size: 0.72rem; padding: 0.3rem 0.75rem; }
 
   /* Navbar */
   .nav-logo           { font-size: 1rem; }
