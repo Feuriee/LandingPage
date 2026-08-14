@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Demo – Yohanes Adi Prasetya</title>
+  <meta name="description" content="Kumpulan project demo karya Yohanes Adi Prasetya – Web Development, Mobile Apps, Game Development, dan lebih banyak lagi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Scroll progress bar -->
+  <div id="progress-bar"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header id="navbar">
+    <nav class="nav-inner">
+      <a href="https://yhanes-adp.my.id" class="logo" id="nav-logo">
+        <i class="fa-solid fa-arrow-left back-icon"></i> Feurie.dev
+      </a>
+      <span class="page-title-badge">Project Demo</span>
+      <div class="nav-controls">
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="game">Game</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="demo-hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-particles" id="particles-container"></div>
+    <div class="demo-hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-rocket"></i> Project Showcase
+      </div>
+      <h1>My <span class="accent">Projects</span></h1>
+      <p class="hero-sub">
+        Kumpulan project yang pernah saya kerjakan — dari web app, mobile app, hingga game development.<br />
+        Klik project untuk melihat detail lebih lanjut.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" id="stat-total">0</span>
+          <span class="stat-label">Total Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">2024</span>
+          <span class="stat-label">Since</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll untuk melihat project</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS GRID ========== -->
+  <main id="main-content">
+    <div class="container">
+      <!-- Search bar -->
+      <div class="search-bar-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Cari project..." autocomplete="off" />
+        <span id="search-count"></span>
+      </div>
+
+      <!-- Grid -->
+      <div class="projects-grid" id="projects-grid"></div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="empty-state" style="display:none">
+        <i class="fa-solid fa-folder-open"></i>
+        <p>Tidak ada project yang cocok</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== MODAL DETAIL ========== -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-label="Project Detail">
+    <div class="modal-card" id="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header">
+        <div class="modal-icon" id="modal-icon"></div>
+        <div>
+          <div class="modal-tag" id="modal-tag"></div>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+      </div>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-tech" id="modal-tech"></div>
+      <div class="modal-actions">
+        <a href="#" class="btn btn-primary" id="modal-link" target="_blank" rel="noopener">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Demo
+        </a>
+        <a href="#" class="btn btn-outline" id="modal-github" target="_blank" rel="noopener" style="display:none">
+          <i class="fa-brands fa-github"></i> Source Code
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer">
+    <p>© 2025 Yohanes Adi Prasetya · <a href="https://yhanes-adp.my.id">yhanes-adp.my.id</a></p>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="projects.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
