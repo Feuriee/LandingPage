@@ -1179,15 +1179,21 @@ body {
 /* ═══════════════════════
    RESPONSIVE
 ═══════════════════════ */
+
+/* ── Tablet (1024px) ── */
 @media (max-width: 1024px) {
   .about-grid          { grid-template-columns: 1fr; }
   .about-photo         { max-width: 400px; margin: auto; }
   .contact-layout      { grid-template-columns: 1fr; }
   .skills-grid         { grid-template-columns: 1fr; }
   .skill-group-wide    { grid-column: auto; }
+  .hero-body           { gap: 3rem; }
 }
 
+/* ── Mobile (768px) ── */
 @media (max-width: 768px) {
+  /* Navbar */
+  .nav-container { padding: 0 1.2rem; }
   .nav-links {
     position: fixed;
     top: var(--nav-h);
@@ -1201,32 +1207,92 @@ body {
     transform: translateY(-110%);
     transition: transform 0.4s var(--ease);
     border-bottom: 1px solid var(--glass-border);
+    z-index: 999;
   }
   .nav-links.open     { transform: none; }
   .nav-cta            { display: none; }
   .hamburger          { display: flex; }
 
-  .hero-body          { gap: 2.5rem; }
+  /* Hero — stack vertikal, terpusat */
+  .hero               { padding: calc(var(--nav-h) + 2.5rem) 1.2rem 5rem; }
+  .hero-body          { flex-direction: column; align-items: center; gap: 2rem; text-align: center; }
+  .hero-text          { min-width: unset; width: 100%; }
+  .hero-badge         { justify-content: center; }
+  .hero-bio           { margin-left: auto; margin-right: auto; font-size: 0.95rem; }
+  .hero-actions       { justify-content: center; }
   .avatar-ring        { display: none; }
   .avatar-img-holder  { width: 130px; height: 130px; }
   .avatar-status      { margin-top: 7rem; font-size: 0.75rem; }
+  .typewriter-wrap    { font-size: 0.85rem; }
 
-  .hero-stats         { gap: 0; }
+  /* Hero stats */
+  .hero-stats         { gap: 0; justify-content: center; }
   .stat-item          { padding: 0 1rem; }
 
-  .form-row           { grid-template-columns: 1fr; }
-  .skill-items-row    { flex-direction: column !important; }
+  /* Sections */
+  .section            { padding: 5.5rem 1.2rem; }
 
-  .footer-inner       { flex-direction: column; text-align: center; }
+  /* About */
+  .about-photo        { max-width: 320px; }
+  .about-actions      { flex-wrap: wrap; }
+
+  /* Skills */
+  .skill-items-row    { flex-direction: column !important; }
+  .engine-card        { width: 100%; }
+
+  /* Contact */
+  .form-row           { grid-template-columns: 1fr; }
+  .contact-form       { padding: 1.5rem; }
+
+  /* Footer */
+  .footer-inner       { flex-direction: column; text-align: center; gap: 0.75rem; }
+  .footer-links       { justify-content: center; }
+
+  /* Scroll to top */
+  .scroll-top-btn     { bottom: 1.25rem; right: 1.25rem; width: 40px; height: 40px; font-size: 0.9rem; }
 }
 
+/* ── Small Mobile (480px) ── */
 @media (max-width: 480px) {
-  .section            { padding: 5rem 1rem; }
-  .hero-name          { letter-spacing: -1.5px; }
-  .hero-actions       { flex-direction: column; }
+  /* Sections */
+  .section            { padding: 4.5rem 1rem; }
+
+  /* Hero */
+  .hero               { padding: calc(var(--nav-h) + 2rem) 1rem 4rem; }
+  .hero-name          { font-size: clamp(2rem, 11vw, 2.8rem); letter-spacing: -1.5px; }
+  .hero-actions       { flex-direction: column; width: 100%; }
+  .hero-actions .btn  { width: 100%; justify-content: center; }
   .hero-stats         { gap: 0; }
-  .stat-item          { padding: 0 0.75rem; }
-  .stat-num           { font-size: 1.5rem; }
+  .stat-item          { padding: 0 0.65rem; }
+  .stat-num           { font-size: 1.4rem; }
+  .stat-label         { font-size: 0.68rem; }
+  .avatar-img-holder  { width: 110px; height: 110px; }
+  .avatar-status      { margin-top: 6rem; font-size: 0.72rem; padding: 0.3rem 0.75rem; }
+
+  /* Navbar */
+  .nav-logo           { font-size: 1rem; }
+
+  /* About */
   .about-actions      { flex-direction: column; }
+  .about-actions .btn { width: 100%; justify-content: center; }
+  .about-photo        { max-width: 100%; }
+
+  /* Projects */
   .projects-grid      { grid-template-columns: 1fr; }
+  .project-card       { padding: 1.4rem; }
+
+  /* Skills */
+  .skill-group        { padding: 1.25rem; }
+  .engine-card        { padding: 1rem 0.75rem; }
+
+  /* Contact */
+  .contact-form       { padding: 1.25rem 1rem; }
+  .social-link        { padding: 0.85rem 1rem; }
+
+  /* Section labels */
+  .section-title      { font-size: clamp(1.6rem, 7vw, 2rem); }
+  .section-sub        { font-size: 0.9rem; }
+
+  /* Buttons */
+  .btn                { padding: 0.65rem 1.25rem; font-size: 0.88rem; }
 }
